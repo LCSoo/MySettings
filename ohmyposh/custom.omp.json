@@ -100,7 +100,7 @@
                         "folder_separator_icon": "<#93d0ff>\u00bb</>"
                     },
                     "style": "diamond",
-                    "template": "[<#ffffff>\uf115</> <#98bfad>{{ .Path }}</>]",
+                    "template": "[/ <#98bfad>{{ .Path }}</>]",
                     "type": "path"
                 }
             ],
