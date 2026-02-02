@@ -1,0 +1,116 @@
+{
+    "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+
+    "blocks": [
+        {
+            "alignment": "left",
+            "newline": true,
+            "leading_diamond": "<#7eb8da>\u250f</>",
+            "segments": [
+                {
+                    "foreground": "#7eb8da",
+                    "options": {
+                        "windows": "<#ffffff>\ue62a</> WIN",
+                        "linux": "<#ffffff>\uf17c</> LINUX",
+                        "ubuntu": "<#ffffff>\uf31b</> UBUNTU",
+                        "macos": "<#ffffff>\uf179</> MAC"
+                    },
+                    "style": "diamond",
+                    "template": "[{{ if .WSL }}WSL at {{ end }}{{.Icon}}]",
+                    "type": "os"
+                },
+                {
+                    "foreground": "#7eb8da",
+                    "style": "plain",
+                    "template": "[<#ffffff>\uf489</> {{ .Name }}]",
+                    "type": "shell"
+                },
+                {
+                    "foreground": "#7eb8da",
+                    "style": "plain",
+                    "template": "[<#ffffff>\uf108</> {{ .HostName }}@{{ .UserName }}]",
+                    "type": "session"
+                },
+                {
+                    "foreground": "#be9ddf",
+                    "style": "plain",
+                    "template": "[<#ffffff>\ue266</> MEM: {{ round .PhysicalPercentUsed .Precision }}% | {{ (div ((sub .PhysicalTotalMemory .PhysicalAvailableMemory)|float64) 1073741824.0) }}/{{ (div .PhysicalTotalMemory 1073741824.0) }}GB]",
+                    "type": "sysinfo"
+                },
+                {
+                    "foreground": "#be9ddf",
+                    "options": {
+                        "style": "roundrock",
+                        "threshold": 0
+                    },
+                    "style": "diamond",
+                    "template": "[<#ffffff>\uf252</> {{ .FormattedMs }}]",
+                    "type": "executiontime"
+                },
+                {
+                    "foreground": "#17D7A0",
+                    "options": {
+                        "fetch_status": true,
+                        "fetch_upstream_icon": true
+                    },
+                    "style": "plain",
+                    "template": "[<#ffffff>{{ .UpstreamIcon }} </>{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} <#ffffff>\uf044</> {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} <#ffffff>\uf046</> {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} <#ffffff>\ueb4b</> {{ .StashCount }}{{ end }}]",
+                    "type": "git"
+                }
+            ],
+            "type": "prompt"
+        },
+        {
+            "alignment": "left",
+            "newline": true,
+            "leading_diamond": "<#7eb8da>\u2523</>",
+            "segments": [
+                {
+                    "foreground": "#7eb8da",
+                    "options": {
+                        "time_format": "<#ffffff>\ue641</> 15:05 | <#ffffff>\uf073</> 01/02 Mon"
+                    },
+                    "style": "diamond",
+                    "template": "[{{ .CurrentDate | date .Format }}]",
+                    "type": "time"
+                }
+            ],
+            "type": "prompt"
+        },
+        {
+            "alignment": "left",
+            "newline": true,
+            "leading_diamond": "<#7eb8da>\u2523</>",
+            "segments": [
+                {
+                    "foreground": "#7eb8da",
+                    "options": {
+                        "style": "full",
+                        "folder_separator_icon": "<#93d0ff>\u00bb</>"
+                    },
+                    "style": "diamond",
+                    "template": "[<#ffffff>\uf115</> <#98bfad>{{ .Path }}</>]",
+                    "type": "path"
+                }
+            ],
+            "type": "prompt"
+        },
+        {
+            "alignment": "left",
+            "newline": true,
+            "leading_diamond": "<#7eb8da>\u2517</>",
+            "segments": [
+                {
+                    "foreground": "#7eb8da",
+                    "style": "diamond",
+                    "template": "\u276f$",
+                    "type": "text"
+                }
+            ],
+            "type": "prompt"
+        }
+    ],
+    "console_title_template": "{{ .UserName }}@{{ .HostName }}: {{ .Path }}",
+    "final_space": true,
+    "version": 4
+}

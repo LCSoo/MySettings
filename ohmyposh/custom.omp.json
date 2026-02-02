@@ -1,0 +1,131 @@
+{
+    "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+
+    "blocks": [
+        {
+            "alignment": "left",
+            "segments": [
+                {
+                    "background": "#21c7a8",
+                    "foreground": "#011627",
+                    "powerline_symbol": "\ue0b0",
+                    "leading_powerline_symbol": "\ue0c5",
+                    "options": {
+                        "windows": "\ue62a WIN",
+                        "linux": "\uf17c LINUX",
+                        "ubuntu": "\uf31b UBUNTU",
+                        "macos": "\uf179 MAC"
+                    },
+                    "style": "powerline",
+                    "template": " {{ if .WSL }}WSL at {{ end }}{{.Icon}}",
+                    "type": "os"
+                },
+                {
+                    "background": "#82AAFF",
+                    "foreground": "#011627",
+                    "powerline_symbol": "\ue0b0",
+                    "style": "powerline",
+                    "template": " \uf489 {{ .Name }}",
+                    "type": "shell"
+                },
+                {
+                    "background": "#FF9CAC",
+                    "foreground": "#011627",
+                    "powerline_symbol": "\ue0b0",
+                    "style": "powerline",
+                    "template": " \uf108 {{ .HostName }}@{{ .UserName }}",
+                    "type": "session"
+                },
+                {
+                    "background": "#be9ddf",
+                    "foreground": "#011627",
+                    "powerline_symbol": "\ue0b0",
+                    "style": "powerline",
+                    "template": " \ue266 MEM({{ round .PhysicalPercentUsed .Precision }}%): {{ (div ((sub .PhysicalTotalMemory .PhysicalAvailableMemory)|float64) 1073741824.0) }}/{{ (div .PhysicalTotalMemory 1073741824.0) }}GB",
+                    "type": "sysinfo"
+                },
+                {
+                    "background": "#575656",
+                    "foreground": "#ffffff",
+                    "powerline_symbol": "\ue0b0",
+                    "options": {
+                        "style": "roundrock",
+                        "threshold": 0
+                    },
+                    "style": "powerline",
+                    "template": " <#ffffff>\uf252</> {{ .FormattedMs }}",
+                    "type": "executiontime"
+                },
+                {
+                    "background": "#addb67",
+                    "foreground": "#011627",
+                    "powerline_symbol": "\ue0b0",
+                    "options": {
+                        "fetch_status": true,
+                        "fetch_upstream_icon": true
+                    },
+                    "style": "powerline",
+                    "template": " {{ .UpstreamIcon }} {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} <#ffffff>\uf044</> {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} <#ffffff>\uf046</> {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} <#ffffff>\ueb4b</> {{ .StashCount }}{{ end }} ",
+                    "type": "git"
+                }
+            ],
+            "type": "prompt"
+        },
+        {
+            "alignment": "left",
+            "newline": true,
+            "leading_diamond": "<#7eb8da>\u250f</>",
+            "segments": [
+                {
+                    "foreground": "#7eb8da",
+                    "options": {
+                        "time_format": "<#ffffff>\ue641</> 15:05 | <#ffffff>\uf073</> 01/02 Mon"
+                    },
+                    "style": "diamond",
+                    "template": "[{{ .CurrentDate | date .Format }}]",
+                    "type": "time"
+                }
+            ],
+            "type": "prompt"
+        },
+        {
+            "alignment": "left",
+            "newline": true,
+            "leading_diamond": "<#7eb8da>\u2523</>",
+            "segments": [
+                {
+                    "foreground": "#7eb8da",
+                    "options": {
+                        "style": "full",
+                        "folder_separator_icon": "<#93d0ff>\u00bb</>"
+                    },
+                    "style": "diamond",
+                    "template": "[<#ffffff>\uf115</> <#98bfad>{{ .Path }}</>]",
+                    "type": "path"
+                }
+            ],
+            "type": "prompt"
+        },
+        {
+            "alignment": "left",
+            "newline": true,
+            "leading_diamond": "<#7eb8da>\u2517</>",
+            "segments": [
+                {
+                    "foreground": "#7eb8da",
+                    "style": "diamond",
+                    "template": "\u276f$",
+                    "type": "text"
+                }
+            ],
+            "type": "prompt"
+        }
+    ],
+    "final_space": true,
+    "transient_prompt": {
+        "background": "transparent",
+        "foreground": "#FEF5ED",
+        "template": "\ue285 "
+    },
+    "version": 4
+}
