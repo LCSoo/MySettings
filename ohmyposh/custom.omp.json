@@ -97,10 +97,10 @@
                     "foreground": "#7eb8da",
                     "options": {
                         "style": "full",
-                        "folder_separator_icon": "<#93d0ff>\u00bb</>"
+                        "folder_separator_icon": "/"
                     },
                     "style": "diamond",
-                    "template": "[/ <#98bfad>{{ .Path }}</>]",
+                    "template": "[<#ffffff>\uf115</> <#98bfad>{{ .Path }}</>]",
                     "type": "path"
                 }
             ],
